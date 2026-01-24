@@ -136,7 +136,7 @@ const entriesWithContent = await Promise.all(
                     <div>
                       {entry.data.logo && (
                         <div class="avatar">
-                          <div class="w-10 mask mask-squircle">
+                          <div class="mask aspect-auto max-w-20">
                             <img src={entry.data.logo} alt={entry.data.title} />
                           </div>
                         </div>

@@ -2,9 +2,8 @@
 title: AuroraBook
 description: >-
   Audio book generator. Converts any ePub file into an audio book using AI.
-image: '@assets/projects/code-tips-platform/image.png'
-startDate: 2024-12-07
-endDate: 2026-01-11
+image: '@assets/projects/aurorabook/aurorabook.png'
+startDate: 2025-10
 skills:
   - Tauri
   - Rust

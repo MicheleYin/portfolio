@@ -63,7 +63,7 @@ const projects = defineCollection({
       title: z.string(),
       description: z.string(),
       image: image(),
-      startDate: z.coerce.date(),
+      startDate: z.coerce.date().optional(),
       endDate: z.coerce.date().optional(),
       skills: z.array(z.string()),
       downloadLink: z.string().url().optional(),

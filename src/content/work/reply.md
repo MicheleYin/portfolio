@@ -1,7 +1,7 @@
 ---
 title: "Technology Reply"
 subtitle: "Full Stack Developer"
-logo: "https://api.dicebear.com/9.x/shapes/svg?seed=Easton"
+logo: "https://www.reply.com/favicon.ico"
 startDate: "2024-04"
 # endDate: "2024-04"
 link: "https://reply.it"

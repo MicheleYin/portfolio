@@ -1,7 +1,7 @@
 ---
 title: "CMCC"
 subtitle: "Python Developer"
-logo: "https://api.dicebear.com/9.x/shapes/svg?seed=Amaya"
+logo: "https://www.cmcc.it/wp-content/uploads/2019/01/Logo_pittogramma_1000x1000.png"
 startDate: "2023-04"
 endDate: "2023-11"
 link: "http://medslik-ii.org/"

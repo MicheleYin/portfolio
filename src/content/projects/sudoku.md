@@ -2,9 +2,8 @@
 title: Ultimate Sudoku
 description: >-
   Ultimate Sudoku is a web application that allows users to play Sudoku puzzles.
-image: '@assets/projects/mary-ui-laravel-starter-kit/image.png'
-startDate: 2024-12-07
-endDate: 2026-01-11
+image: '@assets/projects/sudoku/sudoku.png'
+startDate: 2024-04
 skills:
   - React Native
   - Typescript

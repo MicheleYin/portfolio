@@ -1,7 +1,7 @@
 ---
 title: "Università di Trento"
 subtitle: "Master of Science in Artificial Intelligence."
-logo: "https://api.dicebear.com/9.x/icons/svg?seed=Nolan"
+logo: "https://www.unitn.it/themes/custom/unitn_eventi/logointerno.svg"
 startDate: "2021-09"
 endDate: "2023-10"
 link: "https://www.unitn.it/en"

@@ -1,7 +1,7 @@
 ---
 title: "Università di Trento"
 subtitle: "Bachelor of Science in Computer Science"
-logo: "https://api.dicebear.com/9.x/icons/svg?seed=Nolan"
+logo: "https://www.unitn.it/themes/custom/unitn_eventi/logointerno.svg"
 startDate: "2018-09"
 endDate: "2021-06"
 link: "https://www.unitn.it/en"
