@@ -337,7 +337,7 @@ image: "./screenshot.png"
 startDate: "2023-01-15"
 endDate: "2023-06-30"  # Optional (omit for ongoing)
 skills: ["React", "Node.js", "MongoDB"]
-demoLink: "https://demo.example.com"  # Optional
+downloadLink: "https://demo.example.com"  # Optional
 sourceLink: "https://github.com/..."  # Optional
 ---
 

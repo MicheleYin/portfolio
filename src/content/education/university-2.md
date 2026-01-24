@@ -1,10 +1,10 @@
 ---
-title: "University of AI"
-subtitle: "Bachelor of Information Systems"
-logo: "https://api.dicebear.com/9.x/icons/svg?seed=Sophia"
-startDate: "2015-09-01"
-endDate: "2019-05-30"
-link: "https://university.edu"
+title: "Università di Trento"
+subtitle: "Master of Science in Artificial Intelligence."
+logo: "https://api.dicebear.com/9.x/icons/svg?seed=Nolan"
+startDate: "2021-09"
+endDate: "2023-10"
+link: "https://www.unitn.it/en"
 ---
 
-Focused on software engineering, algorithms, and data structures. Graduated with honors and participated in various coding competitions.
+Artificial Intelligence master's degree with specialization in both Computer Vision and Natural Language Processing. Internship at SISLab.

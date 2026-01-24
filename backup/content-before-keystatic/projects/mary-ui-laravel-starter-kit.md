@@ -5,7 +5,7 @@ image: "https://api.dicebear.com/9.x/glass/svg?seed=Alexander"
 startDate: "2024-12-07"
 skills: ["Laravel", "Livewire", "Mary UI", "DaisyUI", "Tailwind CSS", "Pest"]
 sourceLink: "https://github.com/lauroguedes/mary-ui-starter-kit"
-demoLink: "https://github.com/lauroguedes/mary-ui-starter-kit"
+downloadLink: "https://github.com/lauroguedes/mary-ui-starter-kit"
 ---
 
 ## Project Overview

@@ -228,7 +228,7 @@ image: "./project-image.png"
 startDate: "2023-06-01"
 endDate: "2023-12-01"
 skills: ["React", "TypeScript", "Node.js"]
-demoLink: "https://demo.example.com"
+downloadLink: "https://demo.example.com"
 sourceLink: "https://github.com/yourusername/project"
 ---
 ```

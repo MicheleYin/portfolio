@@ -4,7 +4,7 @@ description: "A centralized platform for storing and sharing code snippets, enab
 image: "https://api.dicebear.com/9.x/glass/svg?seed=Jocelyn"
 startDate: "2025-06-01"
 skills: ["Laravel", "Inertia JS", "Vue 3", "TypeScript", "Monaco Editor", "Tailwind CSS"]
-demoLink: "https://codetips.cloud"
+downloadLink: "https://codetips.cloud"
 ---
 
 ## About Code Tips

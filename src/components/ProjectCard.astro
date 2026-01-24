@@ -48,15 +48,15 @@ function formatPeriod(startDate: Date, endDate?: Date) {
     </div>
     <div class="card-actions justify-end mt-4 gap-2">
       {
-        project.data.demoLink && (
+        project.data.downloadLink && (
           <a
-            href={project.data.demoLink}
+            href={project.data.downloadLink}
             target="_blank"
             rel="noopener noreferrer"
             class="btn btn-sm btn-soft gap-1"
           >
             <ExternalLink class="size-4" />
-            Demo
+            Download
           </a>
         )
       }

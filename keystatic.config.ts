@@ -4,15 +4,15 @@ import { block } from "@keystatic/core/content-components";
 export default config({
   storage: import.meta.env.PUBLIC_KEYSTATIC_GITHUB_APP_SLUG
     ? {
-        kind: "github",
-        repo: {
-          owner: import.meta.env.PUBLIC_KEYSTATIC_REPO_OWNER!,
-          name: import.meta.env.PUBLIC_KEYSTATIC_REPO_NAME!,
-        },
-      }
-    : {
-        kind: "local",
+      kind: "github",
+      repo: {
+        owner: import.meta.env.PUBLIC_KEYSTATIC_REPO_OWNER!,
+        name: import.meta.env.PUBLIC_KEYSTATIC_REPO_NAME!,
       },
+    }
+    : {
+      kind: "local",
+    },
 
   singletons: {
     hero: singleton({
@@ -217,7 +217,7 @@ export default config({
           itemLabel: (props) => props.value,
           description: "Technologies and tools used in this project",
         }),
-        demoLink: fields.url({
+        downloadLink: fields.url({
           label: "Demo Link",
           description: "Live demo URL (optional)",
         }),
@@ -380,6 +380,46 @@ export default config({
         content: fields.markdoc({
           label: "Full Description",
           description: "Detailed information about the hackathon and project",
+          extension: "md",
+        }),
+      },
+    }),
+    publications: collection({
+      label: "Publications",
+      path: "src/content/publications/*",
+      slugField: "title",
+      format: {
+        contentField: "content",
+      },
+      schema: {
+        title: fields.slug({
+          name: { label: "Paper Title" },
+        }),
+        subtitle: fields.text({
+          label: "Journal/Conference",
+          description: 'e.g., "Interspeech 2024"',
+        }),
+        startDate: fields.date({
+          label: "Publication Date",
+          validation: { isRequired: true },
+        }),
+        endDate: fields.date({
+          label: "End Date (Optional)",
+          description: "Optional, usually not needed for publications",
+        }),
+        logo: fields.image({
+          label: "Publication Logo/Icon",
+          directory: "src/assets/publications",
+          publicPath: "@assets/publications/",
+          description: "Optional publication logo",
+        }),
+        link: fields.url({
+          label: "Paper Link",
+          description: "Link to the paper or DOI",
+        }),
+        content: fields.markdoc({
+          label: "Abstract/Description",
+          description: "Brief summary of the paper",
           extension: "md",
         }),
       },

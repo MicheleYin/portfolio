@@ -66,7 +66,7 @@ const projects = defineCollection({
       startDate: z.coerce.date(),
       endDate: z.coerce.date().optional(),
       skills: z.array(z.string()),
-      demoLink: z.string().url().optional(),
+      downloadLink: z.string().url().optional(),
       sourceLink: z.string().url().optional(),
     }),
 });
@@ -113,6 +113,23 @@ const about = defineCollection({
     }),
 });
 
+// Publications collection
+const publications = defineCollection({
+  loader: glob({
+    pattern: "**/*.{md,mdoc,yaml}",
+    base: "./src/content/publications",
+  }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      subtitle: z.string(),
+      startDate: z.coerce.date(),
+      endDate: z.coerce.date().optional(),
+      logo: image().optional(),
+      link: z.string().url().optional(),
+    }),
+});
+
 export const collections = {
   hero,
   work,
@@ -121,4 +138,5 @@ export const collections = {
   hackathons,
   blog,
   about,
+  publications,
 };

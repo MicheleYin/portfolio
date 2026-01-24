@@ -60,6 +60,8 @@ export interface SectionsConfig {
   education: boolean;
   /** Show/hide Hackathons section */
   hackathons: boolean;
+  /** Show/hide Publications section */
+  publications: boolean;
   /** Show/hide Contact section */
   contact: boolean;
 }
@@ -95,25 +97,20 @@ export interface SiteConfig {
  * Update these values to customize your portfolio
  */
 export const siteConfig: SiteConfig = {
-  name: "🌻 Bloomfolio",
-  title: "Astro Portfolio Template built with 🌼 DaisyUI",
+  name: "Michele Yin",
+  title: "Software Engineer",
   description:
     "A modern, responsive, and customizable portfolio template built with Astro and DaisyUI. Perfect for developers, designers, and creatives to showcase their work and skills.",
   avatar: "../assets/bloomfolio.png",
-  location: "🇧🇷 Brazil",
-  email: "hello@example.com",
+  location: "Italy",
+  email: "mickyin3@gmail.com",
   socialLinks: {
-    github: "https://github.com/lauroguedes",
-    linkedin: "https://linkedin.com/in/lauroguedes",
-    twitter: "https://twitter.com/leowg",
-    bluesky: "https://bsky.app/profile/lauroguedes.bsky.social",
-    instagram: "https://instagram.com/lauroguedes.dev",
-    youTube: "https://youtube.com/leowgweb",
-    codetips: "https://codetips.cloud/u/lauroguedes",
+    github: "https://github.com/MicheleYin",
+    linkedin: "https://linkedin.com/in/michele/yin",
   },
   enableThemeSelector: true,
   extraLinks: {
-    enable: true,
+    enable: false,
     links: [
       {
         link: "/blog/guides/bloomfolio-complete-guide",
@@ -144,6 +141,7 @@ export const siteConfig: SiteConfig = {
     work: true,
     education: true,
     hackathons: true,
+    publications: true,
     contact: true,
   },
 };

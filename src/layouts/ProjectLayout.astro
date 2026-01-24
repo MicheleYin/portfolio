@@ -7,11 +7,11 @@ import { ExternalLink } from "@lucide/astro";
 interface Props {
   title: string;
   description: string;
-  startDate: Date;
+  startDate?: Date;
   endDate?: Date;
   image: any;
   skills: string[];
-  demoLink?: string;
+  downloadLink?: string;
   sourceLink?: string;
 }
 
@@ -22,7 +22,7 @@ const {
   endDate,
   image,
   skills,
-  demoLink,
+  downloadLink,
   sourceLink,
 } = Astro.props;
 
@@ -118,17 +118,17 @@ function calculateDuration(startDate: Date, endDate?: Date) {
 
       <!-- Prominent Action Buttons -->
       {
-        (demoLink || sourceLink) && (
+        (downloadLink || sourceLink) && (
           <div class="flex flex-wrap gap-3 mb-6">
-            {demoLink && (
+            {downloadLink && (
               <a
-                href={demoLink}
+                href={downloadLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 class="btn btn-primary gap-2"
               >
                 <ExternalLink class="size-5" />
-                Live Demo
+                Download
               </a>
             )}
             {sourceLink && (

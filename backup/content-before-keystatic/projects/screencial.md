@@ -5,7 +5,7 @@ image: "https://api.dicebear.com/9.x/glass/svg?seed=Brooklynn"
 startDate: "2023-07-01"
 endDate: "2024-06-31"
 skills: ["Laravel", "Livewire", "Stripe", "Tailwind CSS"]
-demoLink: "https://screencial.art"
+downloadLink: "https://screencial.art"
 ---
 
 ## Overview

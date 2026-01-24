@@ -1,13 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
-import About from "../components/About.astro";
+// import About from "../components/About.astro";
 import Timeline from "../components/Timeline.astro";
 import Projects from "../components/Projects.astro";
-import Blog from "../components/Blog.astro";
-import Hackathons from "../components/Hackathons.astro";
+// import Blog from "../components/Blog.astro";
+// import Hackathons from "../components/Hackathons.astro";
 import Contact from "../components/Contact.astro";
-import { Briefcase, GraduationCap } from "@lucide/astro";
+import { Briefcase, GraduationCap, BookOpen } from "@lucide/astro";
 import { getEntry, render } from "astro:content";
 import { siteConfig } from "../config";
 
@@ -28,7 +28,7 @@ const { Content: AboutContent } = await render(aboutEntry);
     <Hero hero={heroEntry.data} />
 
     <!-- About Section -->
-    {
+    <!-- {
       siteConfig.sections.about && (
         <About
           title={aboutEntry.data.title}
@@ -36,13 +36,27 @@ const { Content: AboutContent } = await render(aboutEntry);
           Content={AboutContent}
         />
       )
-    }
+    } -->
 
     <!-- Projects Section -->
     {siteConfig.sections.projects && <Projects />}
 
     <!-- Blog Section -->
-    {siteConfig.sections.blog && <Blog />}
+    <!-- {siteConfig.sections.blog && <Blog />} -->
+
+    <!-- Publications Section -->
+    {
+      siteConfig.sections.publications && (
+        <Timeline
+          collection="publications"
+          variant="list"
+          color="accent"
+          backgroundColor="base-200"
+          icon={BookOpen}
+          sectionTitle="Publications"
+        />
+      )
+    }
 
     <!-- Work Experience Section -->
     {
@@ -72,9 +86,9 @@ const { Content: AboutContent } = await render(aboutEntry);
     }
 
     <!-- Hackathons Section -->
-    {siteConfig.sections.hackathons && <Hackathons />}
+    <!-- {siteConfig.sections.hackathons && <Hackathons />} -->
 
     <!-- Contact Section -->
-    {siteConfig.sections.contact && <Contact />}
+    <!-- {siteConfig.sections.contact && <Contact />} -->
   </main>
 </Layout>
