@@ -3,7 +3,7 @@ title: Ultimate Sudoku
 description: >-
   Ultimate Sudoku is a mobile application that allows users to play Sudoku puzzles.
 image: '@assets/projects/sudoku/sudoku.png'
-startDate: 2024-04
+startDate: 2025-04
 skills:
   - React Native
   - Typescript
