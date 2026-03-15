@@ -24,9 +24,11 @@ function formatPeriod(startDate: Date, endDate?: Date) {
 }
 ---
 
-<article class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
+<article
+  class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow rounded-lg"
+>
   <a href={`/projects/${project.id}`}>
-    <figure class="aspect-video">
+    <figure class="aspect-video rounded-lg">
       <Image
         src={project.data.image}
         alt={project.data.title}

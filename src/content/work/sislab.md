@@ -7,5 +7,5 @@ endDate: "2023-11"
 link: "https://sisl.disi.unitn.it"
 ---
 
-- Integrated **NLP** components including **Text-to-Speech**, **Conditional Text Generation**, and **Automatic Speech Recognition** using **HuggingFace**.
-- Designed and deployed a crowdsourced data collection platform using **FastAPI** and **Bootstrap**, served via **Prolific**.
+- ● Integrated **NLP** components including **Text-to-Speech**, **Conditional Text Generation**, and **Automatic Speech Recognition** using **HuggingFace**.
+- ● Designed and deployed a crowdsourced data collection platform using **FastAPI** and **Bootstrap**, served via **Prolific**.
