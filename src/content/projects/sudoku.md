@@ -1,7 +1,7 @@
 ---
 title: Ultimate Sudoku
 description: >-
-  Ultimate Sudoku is a web application that allows users to play Sudoku puzzles.
+  Ultimate Sudoku is a mobile application that allows users to play Sudoku puzzles.
 image: '@assets/projects/sudoku/sudoku.png'
 startDate: 2024-04
 skills:

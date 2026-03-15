@@ -26,20 +26,27 @@ const {
   sourceLink,
 } = Astro.props;
 
-function formatPeriod(startDate: Date, endDate?: Date) {
+function formatPeriod(startDate?: Date, endDate?: Date) {
+  if (!startDate) {
+    return "-";
+  }
   const options: Intl.DateTimeFormatOptions = {
     month: "short",
     year: "numeric",
   };
   const start = startDate.toLocaleDateString("en-US", options);
-  const end = endDate
-    ? endDate.toLocaleDateString("en-US", options)
-    : "Present";
+  if (!endDate) {
+    return start;
+  }
+  const end = endDate ? endDate.toLocaleDateString("en-US", options) : "-";
   return `${start} - ${end}`;
 }
 
 // Calculate project duration
-function calculateDuration(startDate: Date, endDate?: Date) {
+function calculateDuration(startDate?: Date, endDate?: Date) {
+  if (!startDate) {
+    return "-";
+  }
   const end = endDate || new Date();
   const months =
     (end.getFullYear() - startDate.getFullYear()) * 12 +
@@ -104,16 +111,15 @@ function calculateDuration(startDate: Date, endDate?: Date) {
         class="flex flex-wrap items-center gap-4 text-sm text-base-content/60 mb-6"
       >
         <span class="font-semibold">{formatPeriod(startDate, endDate)}</span>
-        <span>•</span>
-        <span>{calculateDuration(startDate, endDate)}</span>
-        {
+
+        <!-- {
           !endDate && (
             <>
               <span>•</span>
               <span class="badge badge-success badge-sm">Ongoing</span>
             </>
           )
-        }
+        } -->
       </div>
 
       <!-- Prominent Action Buttons -->

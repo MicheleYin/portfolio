@@ -16,9 +16,10 @@ function formatPeriod(startDate: Date, endDate?: Date) {
     year: "numeric",
   };
   const start = startDate.toLocaleDateString("en-US", options);
-  const end = endDate
-    ? endDate.toLocaleDateString("en-US", options)
-    : "Present";
+  if (!endDate) {
+    return start;
+  }
+  const end = endDate.toLocaleDateString("en-US", options);
   return `${start} - ${end}`;
 }
 ---
