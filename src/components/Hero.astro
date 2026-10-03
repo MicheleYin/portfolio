@@ -26,11 +26,11 @@ const { hero } = Astro.props;
 const hasUrl = (url?: string) => url && url.trim() !== '';
 ---
 
-<section class="hero min-h-screen">
+<section class="glass-card hero mx-3 mt-6 min-h-screen rounded-3xl sm:mx-6 lg:mx-auto lg:max-w-7xl">
   <div class="hero-content flex-col lg:flex-row-reverse max-w-7xl gap-8">
     <div class="avatar">
       <div
-        class="w-48 ring-primary ring-offset-base-100 rounded-full ring-2 ring-offset-2"
+        class="hero-avatar glass-card w-48 ring-primary ring-offset-base-100 rounded-full ring-2 ring-offset-2"
       >
         {typeof hero.avatar === 'string' ? (
           <img src={hero.avatar} alt={hero.name} />
@@ -54,7 +54,7 @@ const hasUrl = (url?: string) => url && url.trim() !== '';
             href={hero.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="btn btn-circle btn-ghost"
+            class="hero-social glass-control btn btn-circle btn-ghost"
             aria-label="GitHub"
           >
             <svg
@@ -73,7 +73,7 @@ const hasUrl = (url?: string) => url && url.trim() !== '';
             href={hero.linkedinUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="btn btn-circle btn-ghost"
+            class="hero-social glass-control btn btn-circle btn-ghost"
             aria-label="LinkedIn"
           >
             <svg
@@ -92,7 +92,7 @@ const hasUrl = (url?: string) => url && url.trim() !== '';
             href={hero.twitterUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="btn btn-circle btn-ghost"
+            class="hero-social glass-control btn btn-circle btn-ghost"
             aria-label="X (Twitter)"
           >
             <svg
@@ -109,7 +109,7 @@ const hasUrl = (url?: string) => url && url.trim() !== '';
         {hasUrl(hero.blueskyUrl) && (
           <a
             href={hero.blueskyUrl}
-            class="btn btn-circle btn-ghost"
+            class="hero-social glass-control btn btn-circle btn-ghost"
             aria-label="Bluesky"
           >
             <svg
@@ -126,7 +126,7 @@ const hasUrl = (url?: string) => url && url.trim() !== '';
         {hasUrl(hero.instagramUrl) && (
           <a
             href={hero.instagramUrl}
-            class="btn btn-circle btn-ghost"
+            class="hero-social glass-control btn btn-circle btn-ghost"
             aria-label="Instagram"
           >
             <svg
@@ -143,7 +143,7 @@ const hasUrl = (url?: string) => url && url.trim() !== '';
         {hasUrl(hero.youtubeUrl) && (
           <a
             href={hero.youtubeUrl}
-            class="btn btn-circle btn-ghost"
+            class="hero-social glass-control btn btn-circle btn-ghost"
             aria-label="YouTube"
           >
             <svg
@@ -160,7 +160,7 @@ const hasUrl = (url?: string) => url && url.trim() !== '';
         {hasUrl(hero.codetipsUrl) && (
           <a
             href={hero.codetipsUrl}
-            class="btn btn-circle btn-ghost"
+            class="hero-social glass-control btn btn-circle btn-ghost"
             aria-label="CodeTips"
           >
             <FolderCode class="size-6" />

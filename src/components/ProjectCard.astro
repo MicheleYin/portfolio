@@ -25,7 +25,7 @@ function formatPeriod(startDate: Date, endDate?: Date) {
 ---
 
 <article
-  class="glass-card glass-interactive card rounded-lg hover:-translate-y-1"
+  class="project-card glass-card glass-interactive card rounded-lg"
 >
   <a href={`/projects/${project.id}`}>
     <figure class="aspect-video rounded-lg">
@@ -38,7 +38,7 @@ function formatPeriod(startDate: Date, endDate?: Date) {
       />
     </figure>
   </a>
-  <div class="card-body">
+  <div class="card-body bg-base-100">
     <h3 class="card-title hover:text-primary transition-colors">
       <a href={`/projects/${project.id}`}>{project.data.title}</a>
     </h3>

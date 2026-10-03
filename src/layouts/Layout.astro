@@ -65,6 +65,7 @@ const origin = Astro.url.origin;
     <meta name="twitter:image" content={`${origin}/images/og_home.png`} />
   </head>
   <body class="min-h-screen">
+    <div class="parallax-backdrop" aria-hidden="true"></div>
     <SectionTabs />
 
     <slot />
@@ -121,5 +122,25 @@ const origin = Astro.url.origin;
         }
       }
     </style>
+
+    <script is:inline>
+      const parallaxBackdrop = document.querySelector('.parallax-backdrop');
+      let parallaxFrame;
+
+      const updateParallax = () => {
+        if (!parallaxBackdrop) return;
+        parallaxFrame = undefined;
+        parallaxBackdrop.style.setProperty('--parallax-y', `${window.scrollY * -0.12}px`);
+      };
+
+      const requestParallaxUpdate = () => {
+        if (parallaxFrame === undefined) {
+          parallaxFrame = requestAnimationFrame(updateParallax);
+        }
+      };
+
+      updateParallax();
+      window.addEventListener('scroll', requestParallaxUpdate, { passive: true });
+    </script>
   </body>
 </html>
