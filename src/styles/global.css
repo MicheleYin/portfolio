@@ -181,6 +181,10 @@ main > div > footer:not(.glass-card) {
   z-index: 1;
 }
 
+.glass-tab-track .tab-active {
+  background-color: transparent;
+}
+
 .glass-surface:hover {
   border-color: color-mix(in srgb, var(--color-primary) 42%, var(--glass-highlight) 22%);
   background-image:

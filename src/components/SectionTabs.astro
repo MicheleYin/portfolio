@@ -69,11 +69,11 @@ const homePath = Astro.url.pathname === "/" ? "" : "/";
   const savedGlassStrength = Number(localStorage.getItem("portfolio-glass-strength"));
   setGlassStrength(Number.isFinite(savedGlassStrength) ? savedGlassStrength : 50);
 
-  const tabs = document.querySelectorAll<HTMLAnchorElement>("[data-section-tab]");
-  const tabsTrack = document.querySelector<HTMLElement>("[data-tabs-track]");
-  const tabPill = document.querySelector<HTMLElement>("[data-tab-pill]");
+  const getTabs = () => document.querySelectorAll<HTMLAnchorElement>("[data-section-tab]");
 
   const positionTabPill = (tab?: HTMLAnchorElement) => {
+    const tabsTrack = document.querySelector<HTMLElement>("[data-tabs-track]");
+    const tabPill = document.querySelector<HTMLElement>("[data-tab-pill]");
     if (!tabsTrack || !tabPill || !tab) return;
 
     const trackRect = tabsTrack.getBoundingClientRect();
@@ -83,34 +83,59 @@ const homePath = Astro.url.pathname === "/" ? "" : "/";
     tabPill.style.transform = `translate(${tabRect.left - trackRect.left + tabsTrack.scrollLeft}px, ${tabRect.top - trackRect.top + tabsTrack.scrollTop}px)`;
   };
 
-  const activeTab = () => [...tabs].find((tab) => tab.classList.contains("tab-active"));
+  const activeTab = () => [...getTabs()].find((tab) => tab.classList.contains("tab-active"));
 
-  tabs.forEach((tab) => {
-    tab.addEventListener("mouseenter", () => positionTabPill(tab));
+  document.addEventListener("pointerover", (event) => {
+    const target = event.target as Element;
+    const tab = target.closest<HTMLAnchorElement>("[data-section-tab]");
+    if (tab) positionTabPill(tab);
+    else positionTabPill(activeTab());
   });
-  tabsTrack?.addEventListener("mouseleave", () => positionTabPill(activeTab()));
-  tabsTrack?.addEventListener("scroll", () => positionTabPill(activeTab()), { passive: true });
+  document.addEventListener("scroll", (event) => {
+    if ((event.target as Element)?.closest?.("[data-tabs-track]")) {
+      positionTabPill(activeTab());
+    }
+  }, { passive: true, capture: true });
   window.addEventListener("resize", () => positionTabPill(activeTab()));
   requestAnimationFrame(() => positionTabPill(activeTab()));
 
-  const sections = [...tabs]
-    .map((tab) => document.getElementById(tab.dataset.sectionTab ?? ""))
-    .filter((section): section is HTMLElement => section !== null);
-
   const setActiveTab = (id: string) => {
+    const tabs = getTabs();
     tabs.forEach((tab) => tab.classList.toggle("tab-active", tab.dataset.sectionTab === id));
     positionTabPill([...tabs].find((tab) => tab.dataset.sectionTab === id));
   };
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      const visible = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-      if (visible) setActiveTab(visible.target.id);
-    },
-    { rootMargin: "-20% 0px -65% 0px", threshold: [0.1, 0.5, 1] },
-  );
+  const getRouteTab = () => {
+    if (window.location.pathname.startsWith("/projects")) return "projects";
+    if (window.location.pathname.startsWith("/blog")) return "home";
+    return "home";
+  };
 
-  sections.forEach((section) => observer.observe(section));
+  const syncRouteTab = () => setActiveTab(getRouteTab());
+  syncRouteTab();
+
+  let sectionScrollFrame: number | undefined;
+  const syncSectionTab = () => {
+    if (sectionScrollFrame !== undefined) return;
+
+    sectionScrollFrame = requestAnimationFrame(() => {
+      sectionScrollFrame = undefined;
+      const sections = [...getTabs()]
+        .map((tab) => document.getElementById(tab.dataset.sectionTab ?? ""))
+        .filter((section): section is HTMLElement => section !== null);
+      const visibleSection = sections
+        .filter((section) => section.getBoundingClientRect().top <= window.innerHeight * 0.38)
+        .at(-1);
+      if (visibleSection) setActiveTab(visibleSection.id);
+    });
+  };
+
+  window.addEventListener("scroll", syncSectionTab, { passive: true });
+  syncSectionTab();
+  document.addEventListener("astro:after-swap", () => {
+    requestAnimationFrame(() => {
+      syncRouteTab();
+      syncSectionTab();
+    });
+  });
 </script>
