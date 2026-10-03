@@ -65,10 +65,10 @@ function calculateDuration(startDate?: Date, endDate?: Date) {
 ---
 
 <Layout title={title} description={description}>
-  <article class="max-w-4xl mx-auto px-4 py-20">
+  <article class="glass-card mx-3 my-6 max-w-5xl rounded-3xl px-4 py-20 sm:mx-6 lg:mx-auto">
     <!-- Back button -->
     <div class="mb-8">
-      <a href="/projects" class="btn btn-ghost btn-sm">
+      <a href="/projects" class="glass-control btn btn-ghost btn-sm">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"
@@ -131,7 +131,7 @@ function calculateDuration(startDate?: Date, endDate?: Date) {
                 href={downloadLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="btn btn-primary gap-2"
+                class="primary-glass-action glass-control btn btn-primary gap-2"
               >
                 <ExternalLink class="size-5" />
                 Download
@@ -190,7 +190,7 @@ function calculateDuration(startDate?: Date, endDate?: Date) {
 
     <!-- Back to projects link -->
     <div class="text-center mt-8">
-      <a href="/projects" class="btn btn-primary"> View All Projects </a>
+      <a href="/projects" class="primary-glass-action glass-control btn btn-primary"> View All Projects </a>
     </div>
   </article>
 </Layout>

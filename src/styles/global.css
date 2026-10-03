@@ -192,6 +192,10 @@ main > div > footer {
   color: var(--color-base-content);
 }
 
+.primary-glass-action {
+  background-color: color-mix(in srgb, var(--color-primary) 42%, transparent);
+}
+
 .hero-avatar {
   border-radius: 9999px;
 }
@@ -211,6 +215,14 @@ main > div > footer {
 
 .glass-card .btn:hover {
   background-color: color-mix(in srgb, white 28%, transparent);
+}
+
+.glass-card .primary-glass-action {
+  background-color: color-mix(in srgb, var(--color-primary) 42%, transparent);
+}
+
+.glass-card .primary-glass-action:hover {
+  background-color: color-mix(in srgb, var(--color-primary) 52%, transparent);
 }
 
 .project-card .btn {
