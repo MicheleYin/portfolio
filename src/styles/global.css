@@ -59,9 +59,9 @@ main {
   will-change: transform;
 }
 
-main > section,
-main > div > footer {
-  background-color: color-mix(in srgb, var(--color-base-200) 62%, transparent);
+main > section:not(.glass-card),
+main > div > footer:not(.glass-card) {
+  background-color: transparent !important;
 }
 
 .glass-surface,
