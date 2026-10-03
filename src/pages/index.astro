@@ -25,7 +25,9 @@ const { Content: AboutContent } = await render(aboutEntry);
 >
   <main>
     <!-- Hero Section (Always visible) -->
-    <Hero hero={heroEntry.data} />
+    <div id="home">
+      <Hero hero={heroEntry.data} />
+    </div>
 
     <!-- About Section -->
     <!-- {
@@ -89,6 +91,6 @@ const { Content: AboutContent } = await render(aboutEntry);
     <!-- {siteConfig.sections.hackathons && <Hackathons />} -->
 
     <!-- Contact Section -->
-    <!-- {siteConfig.sections.contact && <Contact />} -->
+    {siteConfig.sections.contact && <div id="contact"><Contact /></div>}
   </main>
 </Layout>

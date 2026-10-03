@@ -4,20 +4,16 @@ import { Palette } from "@lucide/astro";
 const themes = [
   { value: "light", label: "Light" },
   { value: "dark", label: "Dark" },
-  { value: "synthwave", label: "Synthwave" },
-  { value: "retro", label: "Retro" },
-  { value: "valentine", label: "Valentine" },
-  { value: "dim", label: "Dim" },
 ];
 ---
 
-<div class="dropdown dropdown-end">
+<div class="glass-control dropdown dropdown-end p-1">
   <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
     <Palette class="w-5 h-5" />
   </div>
   <ul
     tabindex="0"
-    class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow-lg"
+    class="glass-dropdown dropdown-content menu rounded-box z-[1] w-52 p-2"
   >
     {
       themes.map((theme) => (
