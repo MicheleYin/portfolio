@@ -1,5 +1,5 @@
 ---
-import ThemeSelector from "./ThemeSelector.astro";
+import ThemeToggle from "./ThemeToggle.astro";
 
 const tabs = [
   { id: "home", label: "Home" },
@@ -19,7 +19,11 @@ const homePath = Astro.url.pathname === "/" ? "" : "/";
 >
   <div class="mx-auto flex max-w-6xl items-center justify-between gap-4">
     <a href={`${homePath}#home`} class="hidden text-sm font-semibold tracking-wide sm:block">MY</a>
-    <div class="tabs tabs-boxed min-w-0 max-w-full gap-1 overflow-x-auto bg-base-200/55 p-1">
+    <div
+      class="glass-tab-track tabs tabs-boxed min-w-0 max-w-full gap-1 overflow-x-auto bg-base-200/55 p-1"
+      data-tabs-track
+    >
+      <span class="glass-tab-pill" aria-hidden="true" data-tab-pill></span>
       {tabs.map((tab, index) => (
         <a
           href={`${homePath}#${tab.id}`}
@@ -31,19 +35,9 @@ const homePath = Astro.url.pathname === "/" ? "" : "/";
       ))}
     </div>
     <div class="flex shrink-0 items-center gap-2">
-      <label class="glass-control flex items-center gap-2 px-2 py-2" title="Adjust glass intensity">
-        <span class="sr-only">Glass intensity</span>
-        <input
-          type="range"
-          min="0"
-          max="100"
-          value="55"
-          class="h-1 w-16 cursor-pointer accent-primary sm:w-24"
-          data-glass-slider
-          aria-label="Glass intensity"
-        />
-      </label>
-      <ThemeSelector />
+      <div class="glass-control rounded-full p-2">
+        <ThemeToggle />
+      </div>
     </div>
   </div>
 
@@ -57,13 +51,11 @@ const homePath = Astro.url.pathname === "/" ? "" : "/";
 
 <script>
   const glassHeader = document.querySelector<HTMLElement>("[data-glass-header]");
-  const glassSlider = document.querySelector<HTMLInputElement>("[data-glass-slider]");
   const displacementMap = document.querySelector<SVGElement>("#portfolio-liquid-glass-filter feDisplacementMap");
 
   const setGlassStrength = (value: number) => {
-    if (!glassHeader || !glassSlider) return;
+    if (!glassHeader) return;
 
-    glassSlider.value = String(value);
     const root = document.documentElement;
     root.style.setProperty("--glass-opacity", String(0.18 + value * 0.0072));
     root.style.setProperty("--glass-blur", `${4 + value * 0.14}px`);
@@ -75,18 +67,39 @@ const homePath = Astro.url.pathname === "/" ? "" : "/";
   };
 
   const savedGlassStrength = Number(localStorage.getItem("portfolio-glass-strength"));
-  setGlassStrength(Number.isFinite(savedGlassStrength) ? savedGlassStrength : 55);
-  glassSlider?.addEventListener("input", (event) => {
-    setGlassStrength(Number((event.target as HTMLInputElement).value));
-  });
+  setGlassStrength(Number.isFinite(savedGlassStrength) ? savedGlassStrength : 50);
 
   const tabs = document.querySelectorAll<HTMLAnchorElement>("[data-section-tab]");
+  const tabsTrack = document.querySelector<HTMLElement>("[data-tabs-track]");
+  const tabPill = document.querySelector<HTMLElement>("[data-tab-pill]");
+
+  const positionTabPill = (tab?: HTMLAnchorElement) => {
+    if (!tabsTrack || !tabPill || !tab) return;
+
+    const trackRect = tabsTrack.getBoundingClientRect();
+    const tabRect = tab.getBoundingClientRect();
+    tabPill.style.width = `${tabRect.width}px`;
+    tabPill.style.height = `${tabRect.height}px`;
+    tabPill.style.transform = `translate(${tabRect.left - trackRect.left + tabsTrack.scrollLeft}px, ${tabRect.top - trackRect.top + tabsTrack.scrollTop}px)`;
+  };
+
+  const activeTab = () => [...tabs].find((tab) => tab.classList.contains("tab-active"));
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("mouseenter", () => positionTabPill(tab));
+  });
+  tabsTrack?.addEventListener("mouseleave", () => positionTabPill(activeTab()));
+  tabsTrack?.addEventListener("scroll", () => positionTabPill(activeTab()), { passive: true });
+  window.addEventListener("resize", () => positionTabPill(activeTab()));
+  requestAnimationFrame(() => positionTabPill(activeTab()));
+
   const sections = [...tabs]
     .map((tab) => document.getElementById(tab.dataset.sectionTab ?? ""))
     .filter((section): section is HTMLElement => section !== null);
 
   const setActiveTab = (id: string) => {
     tabs.forEach((tab) => tab.classList.toggle("tab-active", tab.dataset.sectionTab === id));
+    positionTabPill([...tabs].find((tab) => tab.dataset.sectionTab === id));
   };
 
   const observer = new IntersectionObserver(

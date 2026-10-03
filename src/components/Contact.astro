@@ -1,23 +1,28 @@
 ---
-import { MessageCircleCode, Pickaxe } from "@lucide/astro";
+import { MessageCircleCode } from "@lucide/astro";
 ---
 
-<footer class="footer footer-horizontal footer-center bg-base-200 py-10">
+<footer
+  class="glass-card footer footer-horizontal footer-center mx-3 my-6 max-w-6xl rounded-3xl py-10 sm:mx-6 lg:mx-auto"
+>
   <aside>
     <MessageCircleCode class="inline-block size-20" />
-    <p class="max-w-xl m-auto text-lg">
-      DM me on Linkedin<a
-        href="https://www.linkedin.com/in/michele-yin/"
-        class="link link-hover text-primary">michele-yin</a
-      >
+    <p class="m-auto max-w-xl text-lg">
+      DM me on LinkedIn
     </p>
-    <p class="text-base-content/60">
+    <a
+      href="https://www.linkedin.com/in/michele-yin/"
+      class="link link-hover text-primary"
+    >
+      michele-yin
+    </a>
+    <!-- <p class="text-base-content/60">
       Copyright © {new Date().getFullYear()} - Crafted by an Artisan <a
         class="link"
         href="https://lauroguedes.dev"
         target="_blank"
         ><Pickaxe class="size-3 inline-block mr-1" />Lauro Guedes</a
       >
-    </p>
+    </p> -->
   </aside>
 </footer>
