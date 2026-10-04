@@ -27,7 +27,9 @@ if (error instanceof Error) {
   description="An error occurred while processing your request."
 >
   <div class="min-h-screen flex items-center justify-center px-4 py-20">
-    <div class="text-center max-w-2xl mx-auto">
+    <div
+      class="glass-card text-center w-full max-w-3xl mx-auto rounded-3xl px-6 py-12 sm:px-12 sm:py-16"
+    >
       <!-- Large 500 Number -->
       <h1 class="text-9xl font-bold text-error mb-4 animate-pulse">500</h1>
 
@@ -46,11 +48,17 @@ if (error instanceof Error) {
 
       <!-- Action Buttons -->
       <div class="flex gap-4 justify-center flex-wrap mt-8">
-        <a href="/" class="btn btn-primary gap-2">
+        <a
+          href="/"
+          class="primary-glass-action glass-control btn btn-primary gap-2"
+        >
           <House class="size-5" />
           Go Home
         </a>
-        <button onclick="history.back()" class="btn btn-outline gap-2">
+        <button
+          onclick="history.back()"
+          class="glass-control btn btn-outline gap-2"
+        >
           <ArrowLeft class="size-5" />
           Go Back
         </button>
